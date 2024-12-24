@@ -1,0 +1,51 @@
+{
+  "rules": {
+    "dependency-updates": {
+      "description": "Ensure all dependencies are updated to their latest compatible versions",
+      "enabled": true,
+      "action": "update"
+    },
+    "lockfile-consistency": {
+      "description": "Maintain consistent lockfile across environments",
+      "enabled": true,
+      "action": "enforce"
+    },
+    "peer-dependencies": {
+      "description": "Fix peer dependency warnings",
+      "enabled": true,
+      "action": "resolve"
+    }
+  },
+  "tasks": {
+    "update-single-dependency": {
+      "description": "Update a single dependency and test changes.",
+      "command": "pnpm add <dependency-name>@latest && pnpm test",
+      "enabled": true,
+      "trigger": "manual"
+    },
+    "inspect-dependency-tree": {
+      "description": "Inspect the dependency tree for issues or outdated packages.",
+      "command": "pnpm why <dependency-name> && pnpm outdated",
+      "enabled": true,
+      "trigger": "manual"
+    },
+    "pre-commit-check": {
+      "description": "Run dependency audits, peer dependency checks, and tests before committing changes.",
+      "command": "pnpm audit && pnpm explain peer-dependencies && pnpm test",
+      "enabled": true,
+      "trigger": "pre-commit"
+    },
+    "post-commit-rollback": {
+      "description": "Revert the last commit if a dependency issue arises.",
+      "command": "git revert HEAD",
+      "enabled": true,
+      "trigger": "manual"
+    },
+    "schedule-daily-updates": {
+      "description": "Automatically update dependencies once every 24 hours.",
+      "command": "pnpm update --latest && pnpm dedupe && pnpm audit",
+      "enabled": true,
+      "trigger": "schedule:24h"
+    }
+  }
+}
