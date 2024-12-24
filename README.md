@@ -1,4 +1,6 @@
-# penthouse
+# Penthouse 2024
+
+TODO: Modify Documentation & Instructions and update project name "penthouse-2024"
 
 > Critical Path CSS Generator
 
@@ -8,18 +10,20 @@
 
 ## About
 
+This is an updated version of the original Penthouse project. The project was converted to leverage PNPM instead of Yarn to make it easier to maintain dependencies.
+
 Penthouse is the original critical path css generator, helping you out to speed up page rendering for your websites. Supply your site's full CSS and the page you want to create the critical CSS for, and Penthouse will return the critical CSS needed to perfectly render the above the fold content of the page. Read more about critical path css [here](http://www.phpied.com/css-and-the-critical-path/).
 
-The process is automatic and the generated CSS is production ready as is. Behind the scenes Penthouse is using [puppeteer](https://github.com/GoogleChrome/puppeteer) to generate the critical css via the chromium:headless.
+The process is automatic and the generated CSS is production ready as is. Behind the scenes Penthouse is using [puppeteer](https://github.com/GoogleChrome/puppeteer) to generate the critical css via `chromium:headless`.
 
 ## Usage
 
 (If you don’t want to write code, you can use [the online hosted version](https://jonassebastianohlsson.com/criticalpathcssgenerator/).)
 
 ```
-yarn add --dev penthouse
+pnpm add --dev penthouse-2024
 ```
-(or `npm install`, if not using [yarn](https://yarnpkg.com))
+(or `npm install`, if not using [pnpm](https://pnpm.io/))
 
 ### Basic example
 
